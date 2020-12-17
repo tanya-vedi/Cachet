@@ -13,7 +13,6 @@ namespace CachetHQ\Cachet\Repositories\Metric;
 
 use CachetHQ\Cachet\Models\Metric;
 use Illuminate\Support\Facades\DB;
-use Jenssegers\Date\Date;
 
 /**
  * This is the sqlite repository class.
@@ -41,8 +40,8 @@ class SqliteRepository extends AbstractMetricRepository implements MetricInterfa
             "AND {$this->getMetricPointsTable()}.`created_at` <= datetime('now', 'localtime') ".
             "GROUP BY strftime('%H', {$this->getMetricPointsTable()}.`created_at`), strftime('%M', {$this->getMetricPointsTable()}.`created_at`) ".
             "ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
-            'metricId' => $metric->id,
-        ]);
+                'metricId' => $metric->id,
+            ]);
 
         return $this->mapResults($metric, $points);
     }
@@ -64,8 +63,8 @@ class SqliteRepository extends AbstractMetricRepository implements MetricInterfa
             "AND {$this->getMetricPointsTable()}.`created_at` >= datetime('now', 'localtime', '-{$hour} hours') ".
             "AND {$this->getMetricPointsTable()}.`created_at` <= datetime('now', 'localtime') ".
             "GROUP BY strftime('%H', {$this->getMetricPointsTable()}.`created_at`) ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
-            'metricId' => $metric->id,
-        ]);
+                'metricId' => $metric->id,
+            ]);
 
         return $this->mapResults($metric, $points);
     }
@@ -88,8 +87,8 @@ class SqliteRepository extends AbstractMetricRepository implements MetricInterfa
             "AND {$this->getMetricPointsTable()}.`created_at` <= datetime('now', 'localtime') ".
             "GROUP BY DATE({$this->getMetricPointsTable()}.`created_at`) ".
             "ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
-            'metricId' => $metric->id,
-        ]);
+                'metricId' => $metric->id,
+            ]);
 
         return $this->mapResults($metric, $points);
     }

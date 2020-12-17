@@ -23,6 +23,8 @@ return [
         'group' => [
             'other' => 'Andere componenten',
         ],
+        'select_all'   => 'Alles selecteren',
+        'deselect_all' => 'Alles deselecteren',
     ],
 
     // Incidents
@@ -32,7 +34,7 @@ return [
         'stickied'     => 'Vastgezette incidenten',
         'scheduled'    => 'Gepland onderhoud',
         'scheduled_at' => ', gepland :timestamp',
-        'posted'       => 'Geplaatst op :timestamp',
+        'posted'       => 'Posted :timestamp by :username',
         'posted_at'    => 'Geplaatst op :timestamp',
         'status'       => [
             1 => 'In onderzoek',
@@ -53,7 +55,7 @@ return [
 
     // Service Status
     'service' => [
-        'good'  => '[0,1]System operational|[2,*]All systems are operational',
+        'good'  => '[0,1]Systeem operationeel|[2,*]Alle systemen zijn operationeel',
         'bad'   => '[0,1] Het systeem ondervindt momenteel problemen |[2,Inf] Sommige systemen ondervinden momenteel problemen',
         'major' => '[0,1] Het systeem ondervindt momenteel een grote storing|[2,Inf] Sommige systemen ondervinden momenteel een grote storing',
     ],
@@ -75,23 +77,29 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Abonneer voor de meest recente updates',
-        'unsubscribe' => 'Meld je af via :link',
-        'button'      => 'Abonneren',
-        'manage'      => [
-            'no_subscriptions' => 'Je bent momenteel geabonneerd op alle updates.',
-            'my_subscriptions' => 'Je bent momenteel geabonneerd op de volgende updates.',
-            'manage_at_link'   => 'Beheer uw abonnementen op: link',
+        'subscribe'           => 'Abonneer je op statuswijzigingen en incident updates',
+        'unsubscribe'         => 'Abonnement opzeggen',
+        'button'              => 'Abonneren',
+        'manage_subscription' => 'Abonnement beheren',
+        'manage'              => [
+            'notifications'       => 'Notificaties',
+            'notifications_for'   => 'Beheer meldingen voor',
+            'no_subscriptions'    => 'Je bent momenteel geabonneerd op alle updates.',
+            'update_subscription' => 'Abonnement bijwerken',
+            'my_subscriptions'    => 'Je bent momenteel geabonneerd op de volgende updates.',
+            'manage_at_link'      => 'Beheer uw abonnementen op: link',
         ],
         'email' => [
-            'subscribe'          => 'Abonneren op e-mail updates.',
-            'subscribed'         => 'U bent geabonneerd op e-mail notificaties, controleer uw e-mail om uw abonnement te bevestigen.',
-            'verified'           => 'Uw e-mail abonnement is bevestigd. Bedankt!',
-            'manage'             => 'Beheer je abonnement',
-            'unsubscribe'        => 'Afmelden voor e-mail updates.',
-            'unsubscribed'       => 'Uw e-mail abonnement is opgezegd.',
-            'failure'            => 'Er ging iets fout tijdens het aanmelden.',
-            'already-subscribed' => 'Kan niet aanmelden voor :email omdat deze momenteel al is aangemeld.',
+            'manage_subscription' => 'We\'ve sent you an email, please click the link to manage your subscription',
+            'subscribe'           => 'Abonneren op e-mail updates.',
+            'subscribed'          => 'U bent geabonneerd op e-mail notificaties, controleer uw e-mail om uw abonnement te bevestigen.',
+            'updated-subscribe'   => 'You\'ve succesfully updated your subscriptions.',
+            'verified'            => 'Uw e-mail abonnement is bevestigd. Bedankt!',
+            'manage'              => 'Beheer je abonnement',
+            'unsubscribe'         => 'Afmelden voor e-mail updates.',
+            'unsubscribed'        => 'Uw e-mail abonnement is opgezegd.',
+            'failure'             => 'Er ging iets fout tijdens het aanmelden.',
+            'already-subscribed'  => 'Kan niet aanmelden voor :email omdat deze momenteel al is aangemeld.',
         ],
     ],
 

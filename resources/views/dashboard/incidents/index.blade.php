@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content-panel">
-    @includeWhen(isset($sub_menu), 'dashboard.partials.sub-sidebar')
+    @includeWhen(isset($subMenu), 'dashboard.partials.sub-sidebar')
     <div class="content-wrapper">
         <div class="header sub-header">
             <span class="uppercase">
@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                @include('dashboard.partials.errors')
+                @include('partials.errors')
                 <p class="lead">{!! trans_choice('dashboard.incidents.logged', $incidents->count(), ['count' => $incidents->count()]) !!}</p>
 
                 <div class="striped-list">
@@ -27,7 +27,7 @@
                             <p>{{ Str::words($incident->message, 5) }}</p>
                             @endif
                             @if ($incident->user)
-                            <p><small>&mdash; {{ trans('dashboard.incidents.reported_by', ['user' => $incident->user->username]) }}</small></p>
+                            <p><small>&mdash; {{ trans('dashboard.incidents.reported_by', ['timestamp' => $incident->created_at_diff, 'user' => $incident->user->username]) }}</small></p>
                             @endif
                         </div>
                         <div class="col-xs-6 text-right">

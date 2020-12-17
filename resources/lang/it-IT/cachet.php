@@ -23,17 +23,19 @@ return [
         'group' => [
             'other' => 'Altri componenti',
         ],
+        'select_all'   => 'Select All',
+        'deselect_all' => 'Deselect All',
     ],
 
     // Incidents
     'incidents' => [
         'none'         => 'Nessun incidente segnalato',
         'past'         => 'Problemi passati',
-        'stickied'     => 'Incidenti Fissati',
-        'scheduled'    => 'Manutenzione programmata',
+        'stickied'     => 'Stickied Incidents',
+        'scheduled'    => 'Maintenance',
         'scheduled_at' => ', programmata il :timestamp',
-        'posted'       => 'Pubblicato :timestamp',
-        'posted_at'    => 'Pubblicato alle :timestamp',
+        'posted'       => 'Posted :timestamp by :username',
+        'posted_at'    => 'Posted at :timestamp',
         'status'       => [
             1 => 'Analisi',
             2 => 'Identificato',
@@ -45,7 +47,7 @@ return [
     // Schedule
     'schedules' => [
         'status' => [
-            0 => 'In arrivo',
+            0 => 'Upcoming',
             1 => 'In corso',
             2 => 'Completato',
         ],
@@ -54,8 +56,8 @@ return [
     // Service Status
     'service' => [
         'good'  => '[0,1]System operational|[2,*]All systems are operational',
-        'bad'   => '[0,1] Il sistema al momento presenta problemi|[2,Inf] Alcuni sistemi presentano problemi',
-        'major' => '[0,1] Il servizio presenta presenta un grave problema|[2,Inf] Alcuni sistemi presentano un grave problema',
+        'bad'   => '[0,1]The system is experiencing issues|[2,*]Some systems are experiencing issues',
+        'major' => '[0,1]The system is experiencing major issues|[2,*]Some systems are experiencing major issues',
     ],
 
     'api' => [
@@ -75,23 +77,29 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Iscriviti per ricevere gli aggiornamenti più recenti',
-        'unsubscribe' => 'Annulla l\'iscrizione a :link',
-        'button'      => 'Iscriviti',
-        'manage'      => [
-            'no_subscriptions' => 'Sei attualmente iscritto a tutti gli aggiornamenti.',
-            'my_subscriptions' => 'Sei attualmente iscritto ai seguenti suggerimenti.',
-            'manage_at_link'   => 'Manage your subscriptions at :link',
+        'subscribe'           => 'Subscribe to status changes and incident updates',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Iscriviti',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
+            'notifications'       => 'Notifiche',
+            'notifications_for'   => 'Manage notifications for',
+            'no_subscriptions'    => 'Sei attualmente iscritto a tutti gli aggiornamenti.',
+            'update_subscription' => 'Update Subscription',
+            'my_subscriptions'    => 'Sei attualmente iscritto ai seguenti suggerimenti.',
+            'manage_at_link'      => 'Manage your subscriptions at :link',
         ],
         'email' => [
-            'subscribe'          => 'Iscriviti agli aggiornamenti via email.',
-            'subscribed'         => 'Ti sei appena iscritto agli aggiornamenti email, controlla la tua casella per confermare la sottoscrizione',
-            'verified'           => 'La tua iscrizione &egrave; stata confermata. Grazie!',
-            'manage'             => 'Gestisci la tua iscrizione',
-            'unsubscribe'        => 'Annulla l\'iscrizione agli aggiornamenti email.',
-            'unsubscribed'       => 'La tua iscrizione &egrave; stata rimossa.',
-            'failure'            => 'Qualcosa è andato storto con l\'iscrizione.',
-            'already-subscribed' => 'Non è possibile iscrivere :email perchè risulta già iscritto.',
+            'manage_subscription' => 'We\'ve sent you an email, please click the link to manage your subscription',
+            'subscribe'           => 'Iscriviti agli aggiornamenti via email.',
+            'subscribed'          => 'Ti sei appena iscritto agli aggiornamenti email, controlla la tua casella per confermare la sottoscrizione',
+            'updated-subscribe'   => 'You\'ve succesfully updated your subscriptions.',
+            'verified'            => 'La tua iscrizione &egrave; stata confermata. Grazie!',
+            'manage'              => 'Gestisci la tua iscrizione',
+            'unsubscribe'         => 'Annulla l\'iscrizione agli aggiornamenti email.',
+            'unsubscribed'        => 'La tua iscrizione &egrave; stata rimossa.',
+            'failure'             => 'Qualcosa è andato storto con l\'iscrizione.',
+            'already-subscribed'  => 'Non è possibile iscrivere :email perchè risulta già iscritto.',
         ],
     ],
 
@@ -131,7 +139,7 @@ return [
     // Other
     'home'            => 'Home',
     'powered_by'      => 'Powered by <a href="https://cachethq.io" class="links"> Cachet</a>.',
-    'timezone'        => 'Le date sono mostrate in :timezone.',
+    'timezone'        => 'Times are shown in :timezone.',
     'about_this_site' => 'Informazioni sul sito',
     'rss-feed'        => 'RSS',
     'atom-feed'       => 'Atom',

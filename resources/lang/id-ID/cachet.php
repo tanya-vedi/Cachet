@@ -23,6 +23,8 @@ return [
         'group' => [
             'other' => 'Komponen Lain',
         ],
+        'select_all'   => 'Select All',
+        'deselect_all' => 'Deselect All',
     ],
 
     // Incidents
@@ -32,7 +34,7 @@ return [
         'stickied'     => 'Insiden sticky',
         'scheduled'    => 'Pemeliharaan',
         'scheduled_at' => ', dijadwalkan pada :timestamp',
-        'posted'       => 'Dikirim: timestamp',
+        'posted'       => 'Posted :timestamp by :username',
         'posted_at'    => 'Dikirim: :timestamp',
         'status'       => [
             1 => 'Investigasi',
@@ -75,23 +77,29 @@ return [
 
     // Subscriber
     'subscriber' => [
-        'subscribe'   => 'Ikuti newsletter untuk mendapat update terbaru.',
-        'unsubscribe' => 'Berhenti berlangganan: :link',
-        'button'      => 'Daftar',
-        'manage'      => [
-            'no_subscriptions' => 'Anda saat ini terdaftar untuk semua update.',
-            'my_subscriptions' => 'Anda saat ini berlangganan update berikut.',
-            'manage_at_link'   => 'Manage your subscriptions at :link',
+        'subscribe'           => 'Subscribe to status changes and incident updates',
+        'unsubscribe'         => 'Unsubscribe',
+        'button'              => 'Daftar',
+        'manage_subscription' => 'Manage subscription',
+        'manage'              => [
+            'notifications'       => 'Notifikasi',
+            'notifications_for'   => 'Manage notifications for',
+            'no_subscriptions'    => 'Anda saat ini terdaftar untuk semua update.',
+            'update_subscription' => 'Update Subscription',
+            'my_subscriptions'    => 'Anda saat ini berlangganan update berikut.',
+            'manage_at_link'      => 'Manage your subscriptions at :link',
         ],
         'email' => [
-            'subscribe'          => 'Langganan update email.',
-            'subscribed'         => 'Anda berhasil terdaftar pada notifikasi email, mohon periksa email anda untuk mengkonfirmasi pendaftaran ini.',
-            'verified'           => 'Pendaftaran newsletter anda berhasil dikonfirmasi. Terima kasih!',
-            'manage'             => 'Mengelola langganan Anda',
-            'unsubscribe'        => 'Hapus saya dari update email.',
-            'unsubscribed'       => 'Langganan email anda sudah dihentikan.',
-            'failure'            => 'Ada yang salah dengan sistem langganan email.',
-            'already-subscribed' => 'Tidak bisa mendaftarkan :email karena sudah berlangganan.',
+            'manage_subscription' => 'We\'ve sent you an email, please click the link to manage your subscription',
+            'subscribe'           => 'Langganan update email.',
+            'subscribed'          => 'Anda berhasil terdaftar pada notifikasi email, mohon periksa email anda untuk mengkonfirmasi pendaftaran ini.',
+            'updated-subscribe'   => 'You\'ve succesfully updated your subscriptions.',
+            'verified'            => 'Pendaftaran newsletter anda berhasil dikonfirmasi. Terima kasih!',
+            'manage'              => 'Mengelola langganan Anda',
+            'unsubscribe'         => 'Hapus saya dari update email.',
+            'unsubscribed'        => 'Langganan email anda sudah dihentikan.',
+            'failure'             => 'Ada yang salah dengan sistem langganan email.',
+            'already-subscribed'  => 'Tidak bisa mendaftarkan :email karena sudah berlangganan.',
         ],
     ],
 

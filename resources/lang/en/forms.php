@@ -154,6 +154,7 @@ return [
             'about-this-page'                       => 'About this page',
             'days-of-incidents'                     => 'How many days of incidents to show?',
             'time_before_refresh'                   => 'Status page refresh rate (in seconds)',
+            'major_outage_rate'                     => 'Major outage threshold (in %)',
             'banner'                                => 'Banner Image',
             'banner-help'                           => "It's recommended that you upload files no bigger than 930px wide",
             'subscribers'                           => 'Allow people to signup to email notifications?',
@@ -167,7 +168,7 @@ return [
         'analytics' => [
             'analytics_google'       => 'Google Analytics code',
             'analytics_gosquared'    => 'GoSquared Analytics code',
-            'analytics_piwik_url'    => 'URL of your Piwik instance (without http(s)://)',
+            'analytics_piwik_url'    => 'URL of your Piwik instance',
             'analytics_piwik_siteid' => 'Piwik\'s site id',
         ],
         'localization' => [
@@ -226,6 +227,11 @@ return [
 
     'general' => [
         'timezone' => 'Select Timezone',
+    ],
+
+    'seo' => [
+        'title'        => 'SEO Title',
+        'description'  => 'SEO Description',
     ],
 
     // Buttons

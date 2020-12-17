@@ -12,6 +12,8 @@
 namespace CachetHQ\Cachet\Models;
 
 use AltThree\Validator\ValidatingTrait;
+use CachetHQ\Cachet\Models\Traits\HasMeta;
+use CachetHQ\Cachet\Models\Traits\HasTags;
 use CachetHQ\Cachet\Models\Traits\SearchableTrait;
 use CachetHQ\Cachet\Models\Traits\SortableTrait;
 use CachetHQ\Cachet\Presenters\IncidentPresenter;
@@ -29,7 +31,12 @@ use McCool\LaravelAutoPresenter\HasPresenter;
  */
 class Incident extends Model implements HasPresenter
 {
-    use SearchableTrait, SoftDeletes, SortableTrait, ValidatingTrait;
+    use HasMeta;
+    use HasTags;
+    use SearchableTrait;
+    use SoftDeletes;
+    use SortableTrait;
+    use ValidatingTrait;
 
     /**
      * Status for incident being investigated.
@@ -69,16 +76,29 @@ class Incident extends Model implements HasPresenter
     ];
 
     /**
+     * The model's attributes.
+     *
+     * @var string[]
+     */
+    protected $attributes = [
+        'stickied'      => false,
+        'notifications' => false,
+    ];
+
+    /**
      * The attributes that should be casted to native types.
      *
      * @var string[]
      */
     protected $casts = [
-        'user_id'     => 'int',
-        'visible'     => 'int',
-        'stickied'    => 'bool',
-        'occurred_at' => 'datetime',
-        'deleted_at'  => 'date',
+        'component_id'  => 'int',
+        'status'        => 'int',
+        'user_id'       => 'int',
+        'visible'       => 'int',
+        'stickied'      => 'bool',
+        'notifications' => 'bool',
+        'occurred_at'   => 'datetime',
+        'deleted_at'    => 'date',
     ];
 
     /**
@@ -93,6 +113,7 @@ class Incident extends Model implements HasPresenter
         'status',
         'visible',
         'stickied',
+        'notifications',
         'message',
         'occurred_at',
         'created_at',
@@ -105,13 +126,14 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'user_id'      => 'required|int',
-        'component_id' => 'nullable|int',
-        'name'         => 'required|string',
-        'status'       => 'required|int',
-        'visible'      => 'required|bool',
-        'stickied'     => 'required|bool',
-        'message'      => 'required|string',
+        'user_id'       => 'nullable|int',
+        'component_id'  => 'nullable|int',
+        'name'          => 'required|string',
+        'status'        => 'required|int',
+        'visible'       => 'required|bool',
+        'stickied'      => 'required|bool',
+        'notifications' => 'nullable|bool',
+        'message'       => 'required|string',
     ];
 
     /**
@@ -163,16 +185,6 @@ class Incident extends Model implements HasPresenter
     public function component()
     {
         return $this->belongsTo(Component::class, 'component_id', 'id');
-    }
-
-    /**
-     * Get all of the meta relation.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
-    public function meta()
-    {
-        return $this->morphMany(Meta::class, 'meta');
     }
 
     /**
